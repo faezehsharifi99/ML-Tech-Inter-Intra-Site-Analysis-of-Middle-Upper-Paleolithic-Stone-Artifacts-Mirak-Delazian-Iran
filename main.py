@@ -33,21 +33,10 @@ from lightgbm import LGBMClassifier
 
 def main():
 
-    parser.add_argument(
-        '--input', 
-        type=str, 
-        default=str(DEFAULT_CSV_PATH),
-    )
-    parser.add_argument(
-        '--output', 
-        type=str, 
-        default=str(DEFAULT_EXCEL_PATH),
-    )
-    parser.add_argument(
-        '--trials', 
-        type=int, 
-        default=50,
-    )
+    parser = argparse.ArgumentParser(description="Run the classification pipeline")
+    parser.add_argument('--input', type=str, default=str(DEFAULT_CSV_PATH))
+    parser.add_argument('--output', type=str, default=str(DEFAULT_EXCEL_PATH))
+    parser.add_argument('--trials', type=int, default=50)
     args = parser.parse_args()
     
     input_path = Path(args.input)
